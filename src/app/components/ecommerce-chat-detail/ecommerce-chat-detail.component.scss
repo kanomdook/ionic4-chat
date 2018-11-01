@@ -1,0 +1,127 @@
+.chat-container {
+    padding: 4px;
+    background-color: #efefef;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.time-me {
+    text-align: right;
+    color: #c0c0c0;
+    font-size: 0.8rem;
+    padding: 10px;
+}
+
+.box-me {
+    text-align: -webkit-right;
+    padding: 10px;
+}
+
+.bubble-me {
+    background-color: #00d97d;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: -10px;
+    width: fit-content;
+    max-width: 86%;
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 16px solid #00d97d;
+    position: absolute;
+    right: 18px;
+    margin-top: -10px;
+    transform: rotate(60deg);
+}
+
+.time-other {
+    text-align: left;
+    color: #c0c0c0;
+    font-size: 0.8rem;
+    padding: 10px;
+    position: absolute;
+    margin-left: 44px;
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+}
+
+.box-other {
+    text-align: left;
+    padding: 10px;
+}
+
+.bubble-other {
+    background-color: #ffffff;
+    color: #424242;
+    padding: 10px;
+    border-radius: 20px;
+    position: inherit;
+    margin-top: -16px;
+    margin-left: 40px;
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 16px solid #ffffff;
+    position: absolute;
+    left: 60px;
+    margin-top: -20px;
+    transform: rotate(110deg);
+}
+
+.footer-chat-box {
+    height: 3rem;
+    background-color: #ffffff;
+    padding: 0.4rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #ebebeb;
+}
+
+.txt-justify {
+    text-align: initial;
+}
+
+.chat-box-border {
+    border: 1px solid #c0c0c0c0;
+    border-radius: 4px;
+    padding: 0.2rem;
+    width: 93%;
+}
+
+.custom-icon {
+    color: #ff9729dd;
+    font-size: 1.4rem;
+}
+
+.custom-input {
+    width: 80%;
+    border: none;
+    position: absolute;
+    margin: 0.1rem 0 0 0.4rem;
+}
+
+.custom-icon-right {
+    position: absolute;
+    right: 0.4rem;
+}
+
+.clear-fix {
+    margin-top: 3rem;
+}

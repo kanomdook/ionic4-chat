@@ -1,0 +1,41 @@
+<div class="chat-container">
+  <div *ngFor="let item of conversationList">
+    <!-- //me -->
+    <div *ngIf="item.user._id !== receiver">
+      <div class="time-me">{{item.dateTime}}</div>
+      <div class="arrow-right"></div>
+      <div class="box-me">
+        <div class="bubble-me">
+          <div class="txt-justify">
+            {{item.chat}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- //other -->
+
+    <div *ngIf="item.user._id === receiver">
+      <div class="time-other">{{item.dateTime}}</div>
+      <div>
+        <img class="avatar" [src]="item.user.img" alt="avatar">
+      </div>
+      <div class="arrow-left"></div>
+      <div class="box-other">
+        <div class="bubble-other">{{item.chat}}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="clear-fix"></div>
+
+</div>
+<!-- // footer chat -->
+<div class="footer-chat-box">
+  <div class="chat-box-border">
+    <ion-icon class="custom-icon" name="logo-octocat"></ion-icon>
+    <input type="text" placeholder="พิมพ์ข้อความ" class="custom-input">
+    <ion-icon class="custom-icon custom-icon-right" name="ios-add-circle"></ion-icon>
+  </div>
+</div>

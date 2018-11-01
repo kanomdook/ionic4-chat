@@ -1,12 +1,23 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Chat List
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+<ion-content>
+  <ion-list>
+    <span *ngFor="let item of chatList;let i = index">
+      <ion-item (click)="openPageChatDetail(item)" *ngIf="item._id !== sender">
+        <ion-avatar slot="start">
+          <img [src]="item.img">
+        </ion-avatar>
+        <ion-label>
+          {{item.name}}
+          <p>{{item.lastChat}}</p> <span class="time">{{item.dateTime}}</span>
+        </ion-label>
+      </ion-item>
+    </span>
+  </ion-list>
 </ion-content>
