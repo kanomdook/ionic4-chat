@@ -31,7 +31,7 @@ export class LoadingProvider {
   dismiss() {
     setTimeout(() => {
       return this.loading.dismiss();
-    }, 1200);
+    }, 2000);
   }
 
 }

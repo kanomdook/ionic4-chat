@@ -11,16 +11,18 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RestApiService } from './providers/rest-api-service/rest-api.service';
 import { LoadingProvider } from './providers/loading/loading';
+import { ParamsService } from './providers/params/params.service';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot({ mode: 'ios', scrollPadding: 'false' }), HttpClientModule, AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,
     RestApiService,
     LoadingProvider,
+    ParamsService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

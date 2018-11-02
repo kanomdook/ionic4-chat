@@ -2,6 +2,7 @@ import { RestApiService } from './../providers/rest-api-service/rest-api.service
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { LoadingProvider } from '../providers/loading/loading';
+import { ParamsService } from '../providers/params/params.service';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ export class HomePage implements OnInit {
   sender = '1';
   constructor(private navCtrl: NavController,
     private api: RestApiService,
+    private params: ParamsService,
     private loading: LoadingProvider) {
 
   }
@@ -35,7 +37,12 @@ export class HomePage implements OnInit {
   }
 
   openPageChatDetail(item) {
-    this.navCtrl.navigateForward('chat-detail/' + item._id + '/' + item.name);
+    this.params.data = {
+      receiverid: item._id,
+      title: item.name,
+      receiveridimg: item.img
+    };
+    this.navCtrl.navigateForward('chat-detail');
   }
 
   async getChatList() {

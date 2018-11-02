@@ -35,7 +35,7 @@
 <div class="footer-chat-box">
   <div class="chat-box-border">
     <ion-icon class="custom-icon" name="logo-octocat"></ion-icon>
-    <input type="text" placeholder="พิมพ์ข้อความ" class="custom-input">
+    <input type="text" placeholder="พิมพ์ข้อความ" class="custom-input" [(ngModel)]="chat" (keyup.enter)="sendMessage($event)">
     <ion-icon class="custom-icon custom-icon-right" name="ios-add-circle"></ion-icon>
   </div>
 </div>
