@@ -1,6 +1,7 @@
 import { RestApiService } from './../providers/rest-api-service/rest-api.service';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { LoadingProvider } from '../providers/loading/loading';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,9 @@ import { NavController } from '@ionic/angular';
 export class HomePage implements OnInit {
   chatList: Array<any> = [];
   sender = '1';
-  constructor(private navCtrl: NavController, private api: RestApiService) {
+  constructor(private navCtrl: NavController,
+    private api: RestApiService,
+    private loading: LoadingProvider) {
 
   }
 
@@ -36,13 +39,16 @@ export class HomePage implements OnInit {
   }
 
   async getChatList() {
+    this.loading.onLoading();
     try {
       const res: any = await this.api.get('api/chats');
       if (res.status === 200) {
         this.chatList = res.data;
         console.log(res.data);
+        this.loading.dismiss();
       }
     } catch (error) {
+      this.loading.dismiss();
       throw error;
     }
   }

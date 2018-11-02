@@ -2,7 +2,7 @@
   <div *ngFor="let item of conversationList">
     <!-- //me -->
     <div *ngIf="item.user._id !== receiver">
-      <div class="time-me">{{item.dateTime}}</div>
+      <div class="time-me">{{item.dateTime | moment}}</div>
       <div class="arrow-right"></div>
       <div class="box-me">
         <div class="bubble-me">
@@ -16,7 +16,7 @@
     <!-- //other -->
 
     <div *ngIf="item.user._id === receiver">
-      <div class="time-other">{{item.dateTime}}</div>
+      <div class="time-other">{{item.dateTime | moment}}</div>
       <div>
         <img class="avatar" [src]="item.user.img" alt="avatar">
       </div>

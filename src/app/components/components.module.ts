@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { EcommerceChatDetailComponent } from './ecommerce-chat-detail/ecommerce-chat-detail.component';
+import { MomentPipe } from '../pipes/moment.pipe';
 
 
 
@@ -13,9 +14,11 @@ import { EcommerceChatDetailComponent } from './ecommerce-chat-detail/ecommerce-
         IonicModule.forRoot(),
     ],
     declarations: [
+        MomentPipe,
         EcommerceChatDetailComponent
     ],
     exports: [
+        MomentPipe,
         EcommerceChatDetailComponent
     ],
     entryComponents: [],

@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RestApiService } from './providers/rest-api-service/rest-api.service';
+import { LoadingProvider } from './providers/loading/loading';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { RestApiService } from './providers/rest-api-service/rest-api.service';
     StatusBar,
     SplashScreen,
     RestApiService,
+    LoadingProvider,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

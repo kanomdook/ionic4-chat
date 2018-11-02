@@ -15,7 +15,7 @@
         </ion-avatar>
         <ion-label>
           {{item.name}}
-          <p>{{item.lastChat}}</p> <span class="time">{{item.dateTime}}</span>
+          <p>{{item.lastChat}}</p> <span class="time">{{item.dateTime | moment}}</span>
         </ion-label>
       </ion-item>
     </span>
