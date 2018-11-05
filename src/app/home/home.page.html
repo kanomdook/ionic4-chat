@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Chat List
+      แชท
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,7 +9,7 @@
 <ion-content>
   <ion-list>
     <span *ngFor="let item of chatList;let i = index">
-      <ion-item (click)="openPageChatDetail(item)" *ngIf="item._id !== sender">
+      <ion-item (click)="openPageChatDetail(item)">
         <ion-avatar slot="start">
           <img [src]="item.img">
         </ion-avatar>

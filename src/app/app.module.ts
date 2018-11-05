@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RestApiService } from './providers/rest-api-service/rest-api.service';
 import { LoadingProvider } from './providers/loading/loading';
 import { ParamsService } from './providers/params/params.service';
+import { ChatService } from './providers/chat-service/chat.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { ParamsService } from './providers/params/params.service';
     RestApiService,
     LoadingProvider,
     ParamsService,
+    ChatService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

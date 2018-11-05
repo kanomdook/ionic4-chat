@@ -27,6 +27,7 @@
     "core-js": "^2.5.3",
     "moment": "^2.22.2",
     "rxjs": "6.2.2",
+    "socket.io-client": "^2.1.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
