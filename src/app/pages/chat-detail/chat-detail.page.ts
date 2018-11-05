@@ -35,25 +35,40 @@ export class ChatDetailPage implements OnInit {
     this.getChatDetail();
   }
 
-  async getChatDetail() {
-    if (!this.isChatting) {
-      this.loading.onLoading();
-    }
-    try {
-      const res: any = await this.api.get('api/chats/' + this.data.receiverid + '/' + this.sender._id);
-      if (res.status === 200) {
-        this.conversationList = res.data;
-        if (!this.isChatting) {
-          this.loading.dismiss();
-        }
+  getChatDetail() {
+    const reqData: any = {
+      sender: {
+        _id: this.sender._id
+      },
+      receiver: {
+        _id: this.data.receiverid
       }
-    } catch (error) {
-      if (!this.isChatting) {
-        this.loading.dismiss();
-      }
-      throw error;
-    }
+    };
+    this.chatService.getChatDetailList(reqData).subscribe(data => {
+      const dataArr: any = data;
+      this.conversationList = dataArr;
+    });
   }
+
+  // async getChatDetail() {
+  //   if (!this.isChatting) {
+  //     this.loading.onLoading();
+  //   }
+  //   try {
+  //     const res: any = await this.api.get('api/chats/' + this.data.receiverid + '/' + this.sender._id);
+  //     if (res.status === 200) {
+  //       this.conversationList = res.data;
+  //       if (!this.isChatting) {
+  //         this.loading.dismiss();
+  //       }
+  //     }
+  //   } catch (error) {
+  //     if (!this.isChatting) {
+  //       this.loading.dismiss();
+  //     }
+  //     throw error;
+  //   }
+  // }
 
   // async sendMessage(e) {
   //   this.isChatting = true;

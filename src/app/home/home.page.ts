@@ -57,7 +57,6 @@ export class HomePage implements OnInit, OnDestroy {
     this.connection = this.chatService.getMessages().subscribe(data => {
       const dataArr: any = data;
       this.chatList = dataArr;
-      console.log(this.chatList);
       this.loading.dismiss();
     });
   }
