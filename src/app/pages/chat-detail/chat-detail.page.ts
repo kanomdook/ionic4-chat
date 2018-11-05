@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { ParamsService } from '../../providers/params/params.service';
+import { ChatService } from '../../providers/chat-service/chat.service';
 
 @Component({
   selector: 'app-chat-detail',
@@ -17,12 +18,13 @@ export class ChatDetailPage implements OnInit {
   sender: any = {
     _id: '1',
     username: 'dook',
-    img: ''
+    img: 'https://stickershop.line-scdn.net/stickershop/v1/product/444/LINEStorePC/main@2x.png;compress=true'
   }; // get from localStorage
   conversationList: Array<any> = [];
   isChatting = false;
   constructor(
     // private route: ActivatedRoute,
+    private chatService: ChatService,
     private api: RestApiService,
     private params: ParamsService,
     private loading: LoadingProvider) { }
@@ -53,9 +55,34 @@ export class ChatDetailPage implements OnInit {
     }
   }
 
+  // async sendMessage(e) {
+  //   this.isChatting = true;
+  //   const reqBody = {
+  //     name: this.data.title,
+  //     sender: this.sender,
+  //     receiver: {
+  //       _id: this.data.receiverid,
+  //       username: this.data.title,
+  //       img: this.data.receiveridimg
+  //     },
+  //     message: e
+  //   };
+
+  //   try {
+  //     const res: any = await this.api.post('api/chats', reqBody);
+  //     if (res.status === 200) {
+  //       this.getChatDetail();
+  //       setTimeout(() => {
+  //         this.chatBot(e);
+  //       }, 2000);
+  //     }
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // }
+
   async sendMessage(e) {
-    this.isChatting = true;
-    const reqBody = {
+    const data = {
       name: this.data.title,
       sender: this.sender,
       receiver: {
@@ -65,18 +92,7 @@ export class ChatDetailPage implements OnInit {
       },
       message: e
     };
-
-    try {
-      const res: any = await this.api.post('api/chats', reqBody);
-      if (res.status === 200) {
-        this.getChatDetail();
-        setTimeout(() => {
-          this.chatBot(e);
-        }, 2000);
-      }
-    } catch (error) {
-      throw error;
-    }
+    this.chatService.sendMessage(data);
   }
 
   async chatBot(word) {

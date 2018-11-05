@@ -10,8 +10,8 @@ export class ChatService {
   private socket;
   constructor() { }
 
-  sendMessage(message) {
-    this.socket.emit('add-message', message);
+  sendMessage(data) {
+    this.socket.emit('message', data);
   }
 
   getMessages() {

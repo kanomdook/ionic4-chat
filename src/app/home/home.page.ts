@@ -24,7 +24,6 @@ export class HomePage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getChatList();
-
     // this.chatList = [{
     //   _id: '1',
     //   name: 'ร้านค้า 1',
