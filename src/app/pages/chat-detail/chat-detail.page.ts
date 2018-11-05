@@ -110,45 +110,45 @@ export class ChatDetailPage implements OnInit {
     this.chatService.sendMessage(data);
   }
 
-  async chatBot(word) {
-    const states: Array<any> = [{
-      matchWord: 'เปิดร้านอยู่รึป่าวครับ',
-      message: 'สวัสดีค่ะ เปิดอยู่ค่ะ มีอะไรให้ฉันช่วยค่ะ'
-    }, {
-      matchWord: 'มีครับ',
-      message: 'บอกมาได้เลยค่ะ'
-    }];
+  // async chatBot(word) {
+  //   const states: Array<any> = [{
+  //     matchWord: 'เปิดร้านอยู่รึป่าวครับ',
+  //     message: 'สวัสดีค่ะ เปิดอยู่ค่ะ มีอะไรให้ฉันช่วยค่ะ'
+  //   }, {
+  //     matchWord: 'มีครับ',
+  //     message: 'บอกมาได้เลยค่ะ'
+  //   }];
 
-    const rexg = RegExp(word, 'g');
+  //   const rexg = RegExp(word, 'g');
 
-    const matchWords = states.filter(item => {
-      return item.matchWord.match(rexg);
-    });
+  //   const matchWords = states.filter(item => {
+  //     return item.matchWord.match(rexg);
+  //   });
 
-    if (matchWords.length > 0) {
-      this.isChatting = true;
-      const reqBody = {
-        name: this.data.title,
-        sender: {
-          _id: this.data.receiverid,
-          username: this.data.title,
-          img: this.data.receiveridimg
-        },
-        receiver: this.sender,
-        message: matchWords[0].message
-      };
+  //   if (matchWords.length > 0) {
+  //     this.isChatting = true;
+  //     const reqBody = {
+  //       name: this.data.title,
+  //       sender: {
+  //         _id: this.data.receiverid,
+  //         username: this.data.title,
+  //         img: this.data.receiveridimg
+  //       },
+  //       receiver: this.sender,
+  //       message: matchWords[0].message
+  //     };
 
-      try {
-        const res: any = await this.api.post('api/chats', reqBody);
-        if (res.status === 200) {
-          this.getChatDetail();
-        }
-      } catch (error) {
-        throw error;
-      }
-    }
+  //     try {
+  //       const res: any = await this.api.post('api/chats', reqBody);
+  //       if (res.status === 200) {
+  //         this.getChatDetail();
+  //       }
+  //     } catch (error) {
+  //       throw error;
+  //     }
+  //   }
 
 
-  }
+  // }
 
 }

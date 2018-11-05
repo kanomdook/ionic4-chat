@@ -10,7 +10,7 @@ export class ChatService {
   private socket;
   constructor() {
     this.socket = io(this.url);
-    this.socket.emit('joined', { receiver: { _id: '1' } });
+    this.socket.emit('joined', { receiver: { _id: '1' }, room_id: 'BLGboUHJDaWi49xXAAAC' });
   }
 
   sendMessage(data) {
@@ -22,9 +22,6 @@ export class ChatService {
       this.socket.on('message', (data) => {
         observer.next(data);
       });
-      return () => {
-        this.socket.disconnect();
-      };
     });
     return observable;
   }
@@ -35,9 +32,6 @@ export class ChatService {
       this.socket.on('chat-list', (data) => {
         observer.next(data);
       });
-      return () => {
-        this.socket.disconnect();
-      };
     });
     return observable;
   }
