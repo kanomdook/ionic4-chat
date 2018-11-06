@@ -10,7 +10,7 @@ export class ChatService {
   private socket;
   constructor() {
     this.socket = io(this.url);
-    this.socket.emit('init', { receiver: { _id: '1' } });
+    this.socket.emit('init', { receiver: { _id: '1' } }); // get from localStorage
   }
 
   sendMessage(data) {
