@@ -36,8 +36,10 @@ export class EcommerceChatDetailComponent implements OnInit {
   }
 
   sendMessage(e) {
-    this.message.emit(this.chat);
-    this.chat = '';
+    if (this.chat) {
+      this.message.emit(this.chat);
+      this.chat = '';
+    }
   }
 
 }
