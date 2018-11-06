@@ -44,6 +44,8 @@ export class LoginPage implements OnInit {
     });
     if (userItem.length > 0) {
       localStorage.setItem('user', JSON.stringify(userItem[0]));
+      this.credencial.username = '';
+      this.credencial.password = '';
       this.navCtrl.navigateForward('home');
     } else {
       this.credencial.username = '';

@@ -66,4 +66,9 @@ export class HomePage implements OnInit, OnDestroy {
     this.navCtrl.navigateForward('shop');
   }
 
+  logout() {
+    localStorage.removeItem('user');
+    this.navCtrl.navigateForward('login');
+  }
+
 }
