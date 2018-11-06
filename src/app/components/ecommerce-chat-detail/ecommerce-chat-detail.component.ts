@@ -6,6 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./ecommerce-chat-detail.component.scss']
 })
 export class EcommerceChatDetailComponent implements OnInit {
+  isableScrollDown = false;
   chat: string;
   @Input() conversationList: Array<any> = [];
   @Input() receiver = '';
@@ -13,6 +14,10 @@ export class EcommerceChatDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    setTimeout(() => {
+      const element = document.getElementById('box');
+      element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    }, 400);
     // this.conversationList = [{
     //   _id: '11111', // ลูกค้า
     //   user: {
@@ -33,6 +38,10 @@ export class EcommerceChatDetailComponent implements OnInit {
     // }];
 
     // this.receiver = '2';
+  }
+
+  toTop() {
+
   }
 
   sendMessage(e) {
