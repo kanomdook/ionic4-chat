@@ -1,4 +1,10 @@
-<div id="box" class="chat-container">
+<div id="box" *ngIf="conversationList.length <= 0" class="center">
+  <img src="https://image.flaticon.com/icons/svg/942/942802.svg" width="64px" height="64px" alt="image">
+  <p>
+    ไม่มีข้อมูลการสนทนา
+  </p>
+</div>
+<div id="box" class="chat-container" *ngIf="conversationList.length > 0">
   <div *ngFor="let item of conversationList">
     <!-- //me -->
     <div *ngIf="item.user._id !== receiver">

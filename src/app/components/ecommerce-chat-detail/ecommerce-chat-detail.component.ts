@@ -6,7 +6,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./ecommerce-chat-detail.component.scss']
 })
 export class EcommerceChatDetailComponent implements OnInit {
-  isableScrollDown = false;
   chat: string;
   @Input() conversationList: Array<any> = [];
   @Input() receiver = '';
@@ -38,10 +37,6 @@ export class EcommerceChatDetailComponent implements OnInit {
     // }];
 
     // this.receiver = '2';
-  }
-
-  toTop() {
-
   }
 
   sendMessage(e) {

@@ -1,6 +1,7 @@
 .chat-container {
     padding: 4px;
     background-color: #efefef;
+    min-height: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -124,4 +125,9 @@
 
 .clear-fix {
     height: 3rem;
+}
+
+.center {
+    text-align: center;
+    margin-top: 14px;
 }
