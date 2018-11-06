@@ -43,6 +43,7 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   openPageChatDetail(item) {
+    console.log(item);
     this.params.data = {
       receiverid: item._id,
       title: item.name,
@@ -52,12 +53,17 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   getChatList() {
-    this.loading.onLoading();
+    // this.loading.onLoading();
     this.connection = this.chatService.getMessages().subscribe(data => {
+      console.log(data);
       const dataArr: any = data;
       this.chatList = dataArr;
-      this.loading.dismiss();
+      // this.loading.dismiss();
     });
+  }
+
+  findShop() {
+    this.navCtrl.navigateForward('shop');
   }
 
 }

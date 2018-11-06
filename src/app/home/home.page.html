@@ -3,6 +3,11 @@
     <ion-title>
       แชท
     </ion-title>
+    <ion-buttons slot="end" *ngIf="chatList.length > 0">
+      <ion-button (click)="findShop()">
+        ร้านค้า
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -23,7 +28,8 @@
   <div *ngIf="chatList.length <= 0" class="center">
     ไม่มีข้อมูลการแชท
     <p>
-      <ion-button color="primary" fill="clear" expand="block" round strong> หาร้านค้าเพื่อพูดคุย </ion-button>
+      <ion-button color="primary" fill="clear" expand="block" round strong (click)="findShop()"> หาร้านค้าเพื่อพูดคุย
+      </ion-button>
     </p>
   </div>
 </ion-content>

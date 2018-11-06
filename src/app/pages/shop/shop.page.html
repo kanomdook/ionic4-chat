@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>ร้านค้า</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let item of shops">
+    <ion-card *ngIf="ownner._id !== item._id">
+      <img [src]="item.cover" />
+      <ion-card-content>
+        <ion-card-title>
+          {{item.name}}
+        </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col text-center>
+          <ion-button color="primary" clear small icon-start (click)="openChat(item)">
+            <ion-icon name="chatboxes"></ion-icon> พูดคุย
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+</ion-content>
