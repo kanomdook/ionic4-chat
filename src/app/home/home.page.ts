@@ -12,7 +12,6 @@ import { ChatService } from '../providers/chat-service/chat.service';
 })
 export class HomePage implements OnInit, OnDestroy {
   chatList: Array<any> = [];
-  sender = '1';
   connection: any;
   constructor(private navCtrl: NavController,
     private api: RestApiService,
@@ -61,18 +60,4 @@ export class HomePage implements OnInit, OnDestroy {
     });
   }
 
-  // async getChatList() {
-  //   this.loading.onLoading();
-  //   try {
-  //     const res: any = await this.api.get('api/chats');
-  //     if (res.status === 200) {
-  //       this.chatList = res.data;
-  //       console.log(res.data);
-  //       this.loading.dismiss();
-  //     }
-  //   } catch (error) {
-  //     this.loading.dismiss();
-  //     throw error;
-  //   }
-  // }
 }

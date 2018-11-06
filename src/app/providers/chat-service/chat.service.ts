@@ -9,8 +9,10 @@ export class ChatService {
   private url = 'http://localhost:3000';
   private socket;
   constructor() {
+    const user = JSON.parse(localStorage.getItem('user')) ?
+      JSON.parse(localStorage.getItem('user')) : {};
     this.socket = io(this.url);
-    this.socket.emit('init', { receiver: { _id: '1' } }); // get from localStorage
+    this.socket.emit('init', { receiver: { _id: user._id } });
   }
 
   sendMessage(data) {

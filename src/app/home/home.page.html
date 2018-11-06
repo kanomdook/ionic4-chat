@@ -20,4 +20,10 @@
       </ion-item>
     </span>
   </ion-list>
+  <div *ngIf="chatList.length <= 0" class="center">
+    ไม่มีข้อมูลการแชท
+    <p>
+      <ion-button color="primary" fill="clear" expand="block" round strong> หาร้านค้าเพื่อพูดคุย </ion-button>
+    </p>
+  </div>
 </ion-content>
