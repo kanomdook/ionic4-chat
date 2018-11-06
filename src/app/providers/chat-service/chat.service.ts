@@ -10,7 +10,7 @@ export class ChatService {
   private socket;
   constructor() {
     this.socket = io(this.url);
-    this.socket.emit('joined', { receiver: { _id: '1' }, room_id: 'BLGboUHJDaWi49xXAAAC' });
+    this.socket.emit('init', { receiver: { _id: '1' } });
   }
 
   sendMessage(data) {
@@ -28,6 +28,7 @@ export class ChatService {
 
   getChatDetailList(reqData) {
     const observable = new Observable(observer => {
+      this.socket.emit('joined', reqData);
       this.socket.emit('chat-list', reqData);
       this.socket.on('chat-list', (data) => {
         observer.next(data);
