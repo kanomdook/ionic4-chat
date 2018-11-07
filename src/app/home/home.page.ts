@@ -12,7 +12,9 @@ import { ChatService } from '../providers/chat-service/chat.service';
 })
 export class HomePage implements OnInit, OnDestroy {
   chatList: Array<any> = [];
+  chatListData: Array<any> = [];
   connection: any;
+  user: any = {};
   constructor(private navCtrl: NavController,
     private api: RestApiService,
     private params: ParamsService,
@@ -22,6 +24,9 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    const user = JSON.parse(localStorage.getItem('user')) ?
+      JSON.parse(localStorage.getItem('user')) : {};
+    this.user = user;
     this.getChatList();
     // this.chatList = [{
     //   _id: '1',
@@ -55,9 +60,34 @@ export class HomePage implements OnInit, OnDestroy {
   getChatList() {
     // this.loading.onLoading();
     this.connection = this.chatService.getMessages().subscribe(data => {
-      console.log(data);
-      const dataArr: any = data;
-      this.chatList = dataArr;
+      const chatList: any = data;
+      console.log(chatList);
+      const newChatList: Array<any> = [];
+      chatList.forEach((chatEl, i) => {
+        if (chatEl._id !== this.user._id && chatEl.name !== this.user.username) {
+          newChatList.push(chatEl);
+        }
+      });
+
+      chatList.forEach((chatEl, i) => {
+        if (chatEl.ref) {
+          const countEl = newChatList.filter(el => {
+            return chatEl.ref._id === el._id;
+          });
+          if (countEl.length <= 0) {
+            newChatList.push({
+              dateTime: chatEl.dateTime,
+              img: chatEl.ref.img,
+              lastChat: chatEl.lastChat,
+              name: chatEl.ref.username,
+              _id: chatEl.ref._id
+            });
+          }
+        }
+      });
+
+      console.log(newChatList);
+      this.chatList = newChatList;
       // this.loading.dismiss();
     });
   }
