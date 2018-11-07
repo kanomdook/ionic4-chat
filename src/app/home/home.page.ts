@@ -60,8 +60,8 @@ export class HomePage implements OnInit, OnDestroy {
   getChatList() {
     // this.loading.onLoading();
     this.connection = this.chatService.getMessages().subscribe(data => {
+      this.chatList = [];
       const chatList: any = data;
-      console.log(chatList);
       const newChatList: Array<any> = [];
       chatList.forEach((chatEl, i) => {
         if (chatEl._id !== this.user._id && chatEl.name !== this.user.username) {
@@ -85,9 +85,8 @@ export class HomePage implements OnInit, OnDestroy {
           }
         }
       });
-
-      console.log(newChatList);
       this.chatList = newChatList;
+      console.log(this.chatList);
       // this.loading.dismiss();
     });
   }
